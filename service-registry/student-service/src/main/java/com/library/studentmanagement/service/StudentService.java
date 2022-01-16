@@ -27,8 +27,10 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
-    public void deleteStudentById(Long studentId) {
-        log.info("inside deleteStudentById method of StudentService");
-        studentRepository.deleteByStudentId(studentId);
+    public void deleteStudentById(Student student) {
+        log.info("inside deleteStudentBy Id method of StudentService");
+        Student s = studentRepository.findStudentByStudentId(student.getStudentId());
+        s.setExist(0);
+        studentRepository.save(s);
     }
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequestMapping("/students")
-@CrossOrigin(allowedHeaders = "**")
+@CrossOrigin(allowedHeaders = "**", origins = "http://localhost:4200")
 public class StudentController {
 
     @Autowired
@@ -22,21 +22,23 @@ public class StudentController {
     }
 
     @GetMapping("/{id}")
-    public Student findStudentById(@PathVariable("id") Long studentId){
+    public Student findStudentById(@PathVariable("id") Long studentId) {
         log.info("inside findStudent method of StudentController");
         return studentService.findStudentById(studentId);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/all")
     public Iterable<Student> getAllStudents (){
         log.info("inside getAllStudents method of StudentController");
         return studentService.getAllStudents();
     }
 
-    @DeleteMapping("/delete/{id}")
-    public void deleteStudentById(@PathVariable("id") Long studentId){
+    @CrossOrigin(origins = "http://localhost:4200")
+    @PostMapping("/delete")
+    public void deleteStudentById(@RequestBody Student student){
         log.info("inside deleteStudentById method of StudentController");
-        studentService.deleteStudentById(studentId);
+        studentService.deleteStudentById(student);
     }
 
 }

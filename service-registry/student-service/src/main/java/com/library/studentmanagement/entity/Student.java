@@ -29,6 +29,16 @@ public class Student {
 
     @Column
     private String phone ;
+    @Column
+    private int exist ;
+
+    public int getExist() {
+        return exist;
+    }
+
+    public void setExist(int exist) {
+        this.exist = exist;
+    }
 
     public String getPhone() {
         return phone;
