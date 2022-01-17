@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
-    Book findByBookId(Long bookId);
+    Book findBookById(Long bookId);
     List<Book> findAll();
     void delete (Book b);
 

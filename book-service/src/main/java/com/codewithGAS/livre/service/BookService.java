@@ -23,9 +23,11 @@ public class BookService {
     public Book saveBook(Book book){
         return  bookRepository.save(book);
     }
+
     public  Book findBookById(Long bookID) {
-        return bookRepository.findByBookId(bookID);
+        return bookRepository.findBookById(bookID);
     }
+
     public List<Book> getAllBook() {
         return bookRepository.findAll();
     }
@@ -35,18 +37,16 @@ public class BookService {
          bookRepository.delete(book);
     }
 
-
     public Book updateBook(Long bookId) {
         Book bookToUpdate = bookRepository.getById(bookId);
         bookToUpdate.setBookName(bookToUpdate.getBookName());
         bookToUpdate.setBookAuthor(bookToUpdate.getBookAuthor());
-        bookToUpdate.setBookEmprunte(bookToUpdate.getBookEmprunte());
-        bookToUpdate.setBookImage(bookToUpdate.getBookImage());
-        bookToUpdate.setStudentId(bookToUpdate.getStudentId());
+        bookToUpdate.setNbCopy(bookToUpdate.getNbCopy());
+        bookToUpdate.setDescription(bookToUpdate.getDescription());
         return bookRepository.save(bookToUpdate);
 
-
     }
+
 //    public ResponseTemplateVO getLivreWithEtudiant(Long id){
 //        ResponseTemplateVO vo =new ResponseTemplateVO();
 //        Book l=bookRepository.findByBookId(id);

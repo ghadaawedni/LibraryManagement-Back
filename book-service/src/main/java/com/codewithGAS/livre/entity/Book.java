@@ -4,26 +4,21 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "book")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Setter
 public class Book {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    private Long id;
+
     @Column
-
-    private Long bookId;
-    @Column
-
-
     @Getter @Setter private String bookName;
     @Column
     @Getter @Setter private String bookAuthor;
     @Column
-    @Getter @Setter private int bookEmprunte;
+    @Getter @Setter private int nbCopy;
     @Column
-    @Getter @Setter private String bookImage;
-    @Column
-    @Getter @Setter private Long studentId;
+    @Getter @Setter private String description;
 }
