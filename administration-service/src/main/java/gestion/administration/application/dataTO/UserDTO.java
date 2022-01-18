@@ -2,14 +2,21 @@ package gestion.administration.application.dataTO;
 
 public class UserDTO {
 
+    private long id;
     private String username;
     private String password;
     private String email;
     private String firstName;
     private String lastName;
-    private String studyField;
-    private String uviversity;
     private String phoneNumber;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getEmail() {
         return email;
@@ -34,23 +41,6 @@ public class UserDTO {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
-    public String getStudyField() {
-        return studyField;
-    }
-
-    public void setStudyField(String studyField) {
-        this.studyField = studyField;
-    }
-
-    public String getUviversity() {
-        return uviversity;
-    }
-
-    public void setUviversity(String uviversity) {
-        this.uviversity = uviversity;
-    }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }

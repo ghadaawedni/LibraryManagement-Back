@@ -60,4 +60,10 @@ public class AdministrationController {
     public Iterable<User> getAllAdmins () {
         return userRepository.findAll();
     }
+
+    //delete
+    @RequestMapping(value = "/delete/{id}" , method = RequestMethod.DELETE)
+    public void deleteAdmin(@PathVariable("id") Long id) {
+        userRepository.deleteById(id);
+    }
 }
