@@ -25,6 +25,8 @@ public class User {
     private String lastName;
     @Column
     private String phoneNumber;
+    @Column
+    private int superUser;
 
     @Column
     @JsonIgnore
@@ -36,6 +38,14 @@ public class User {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public int getSuperUser() {
+        return superUser;
+    }
+
+    public void setSuperUser(int superUser) {
+        this.superUser = superUser;
     }
 
     public String getUsername() {

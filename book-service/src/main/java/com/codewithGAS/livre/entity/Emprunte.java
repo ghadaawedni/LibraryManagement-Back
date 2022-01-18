@@ -13,7 +13,6 @@ public class Emprunte {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     @Getter @Setter private Long id;
-
     @Column
     @Getter @Setter private Long bookId;
     @Column

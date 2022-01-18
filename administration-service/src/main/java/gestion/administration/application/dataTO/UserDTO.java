@@ -9,6 +9,7 @@ public class UserDTO {
     private String firstName;
     private String lastName;
     private String phoneNumber;
+    private int superUser;
 
     public Long getId() {
         return id;
@@ -16,6 +17,18 @@ public class UserDTO {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getSuperUser() {
+        return superUser;
+    }
+
+    public void setSuperUser(int superUser) {
+        this.superUser = superUser;
     }
 
     public String getEmail() {

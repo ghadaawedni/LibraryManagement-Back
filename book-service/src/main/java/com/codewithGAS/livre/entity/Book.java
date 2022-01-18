@@ -21,4 +21,8 @@ public class Book {
     @Getter @Setter private int nbCopy;
     @Column
     @Getter @Setter private String description;
+    @Column
+    @Getter @Setter private String img;
+
+
 }
