@@ -8,13 +8,23 @@ public class EmprunteStudentDTO {
     private Date dateEmprunte;
     private Date datePrevue;
     private Date dateRetour;
+    private String img;
 
 
-    public EmprunteStudentDTO(String bookName, Date dateEmprunte, Date datePrevue, Date dateRetour) {
+    public EmprunteStudentDTO(String bookName, Date dateEmprunte, Date datePrevue, Date dateRetour,String img) {
         this.bookName = bookName;
         this.dateEmprunte = dateEmprunte;
         this.datePrevue = datePrevue;
         this.dateRetour = dateRetour;
+        this.img = img;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public String getBookName() {

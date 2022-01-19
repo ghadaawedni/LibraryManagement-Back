@@ -60,7 +60,8 @@ public class EmprunteController {
                     bookController.getBook(emprunte.getBookId()).getBookName(),
                     emprunte.getDateEmprunte(),
                     emprunte.getDatePrevue(),
-                    emprunte.getDateRetour()
+                    emprunte.getDateRetour(),
+                    bookController.getBook(emprunte.getBookId()).getImg()
             );
             return emprunteStudentDTO;
         }).collect(Collectors.toList());
