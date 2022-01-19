@@ -2,6 +2,7 @@ package com.codewithGAS.livre.controller;
 import com.codewithGAS.livre.entity.Book;
 import com.codewithGAS.livre.entity.EmprunteDTO;
 import com.codewithGAS.livre.entity.Emprunte;
+import com.codewithGAS.livre.entity.EmprunteStudentDTO;
 import com.codewithGAS.livre.repository.EmprunteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -48,6 +49,23 @@ public class EmprunteController {
     @DeleteMapping("/empruntes/{id}")
     public void deleteEmprunte(@PathVariable("id") Long emprunteId) {  emprunteRepository.deleteById(emprunteId);  }
 
+
+    @GetMapping("/all/{email}")
+    public List<EmprunteStudentDTO> getAllBook(@PathVariable("email") Long id) {
+
+        List<Emprunte> empruntes = emprunteRepository.getByStudentId(id);
+
+        List<EmprunteStudentDTO> emprunteStudentDTOS = empruntes.stream().map(emprunte -> {
+            EmprunteStudentDTO emprunteStudentDTO = new EmprunteStudentDTO(
+                    bookController.getBook(emprunte.getBookId()).getBookName(),
+                    emprunte.getDateEmprunte(),
+                    emprunte.getDatePrevue(),
+                    emprunte.getDateRetour()
+            );
+            return emprunteStudentDTO;
+        }).collect(Collectors.toList());
+        return emprunteStudentDTOS;
+    }
 
 
     // function to sort hashmap by values

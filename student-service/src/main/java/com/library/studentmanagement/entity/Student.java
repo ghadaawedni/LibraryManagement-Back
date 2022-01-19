@@ -17,6 +17,8 @@ public class Student {
 
     @Column
     private String lastName;
+    @Column
+    private String email;
 
     @Column
     private int age ;
@@ -32,6 +34,14 @@ public class Student {
 
     @Column
     private int exist ;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public int getExist() {
         return exist;
